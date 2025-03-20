@@ -4,7 +4,7 @@ namespace JogoDeAdivinhacao.ConsoleApp
 {
     internal class Program
     {
-        // Versão 02:Gerar um Número Secreto Aleatório
+        // Versão 03: Verificar se o Jogador Acertou
         static void Main(string[] args)
         {
             Console.WriteLine("-------------------------------");
@@ -18,10 +18,22 @@ namespace JogoDeAdivinhacao.ConsoleApp
             Console.Write("> Digite um número (1 á 20) de chute: ");
             int numeroChute = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"Você digitou: {numeroChute}");
-            Console.WriteLine($"O número secreto era: {numeroSecretoRandom}");
+            if (numeroChute == numeroSecretoRandom)
+            {
+                Console.WriteLine($"Parabéns, você acertou!");
+                Console.WriteLine($"O número secreto era {numeroSecretoRandom}");
+            } 
+            else if (numeroChute > numeroSecretoRandom)
+                Console.WriteLine($"O número secreto é menor!");
+            else if (numeroChute < numeroSecretoRandom)
+                Console.WriteLine($"O número secreto é maior!");
+            else
+            {
+                Console.WriteLine($"Que pena, você errou o número!");
 
-            Console.ReadLine();
+            }
+
+                Console.ReadLine();
         }
     }
 }
