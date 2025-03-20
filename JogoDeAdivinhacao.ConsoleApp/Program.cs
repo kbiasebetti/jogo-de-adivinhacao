@@ -1,8 +1,10 @@
-﻿namespace JogoDeAdivinhacao.ConsoleApp
+﻿using System.Security.Cryptography;
+
+namespace JogoDeAdivinhacao.ConsoleApp
 {
     internal class Program
     {
-        // Versão 01: Estrutura Básica e Entrada do Usuário
+        // Versão 02:Gerar um Número Secreto Aleatório
         static void Main(string[] args)
         {
             Console.WriteLine("-------------------------------");
@@ -10,10 +12,14 @@
             Console.WriteLine("-------------------------------");
 
             // Lógica do Jogo
-            Console.Write("> Digite um número de chute: ");
+            Random gerarNumeroAleatorio = new Random(); // Método para gerar número aleatório
+            int numeroSecretoRandom = gerarNumeroAleatorio.Next(1, 21);
+
+            Console.Write("> Digite um número (1 á 20) de chute: ");
             int numeroChute = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"Você digitou o número: {numeroChute}");
+            Console.WriteLine($"Você digitou: {numeroChute}");
+            Console.WriteLine($"O número secreto era: {numeroSecretoRandom}");
 
             Console.ReadLine();
         }
