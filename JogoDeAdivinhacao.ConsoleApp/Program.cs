@@ -35,13 +35,37 @@
                 Random gerarNumeroAleatorio = new Random(); // Método para gerar número aleatório
                 int numeroSecretoRandom = gerarNumeroAleatorio.Next(1, 21);
 
-                for (int tentativa = 1; totalTentativas <= totalTentativas; tentativa++)
+                int[] numerosTentados = new int[totalTentativas];
+                int tentativasFeitas = 0;
+
+                for (int tentativa = 1; tentativa <= totalTentativas; tentativa++)
                 {
                     Console.Clear();
                     Console.WriteLine($"Tentativa {tentativa} de {totalTentativas}");
     
                     Console.Write("> Digite um número (1 á 20) de chute: ");
                     int numeroChute = Convert.ToInt32(Console.ReadLine());
+
+                    bool numeroRepetido = false;
+                    for (int i = 0; i < tentativasFeitas; i++)
+                    {
+                        if (numerosTentados[i] == numeroChute)
+                        {
+                            numeroRepetido = true;
+                            break;
+                        }
+                    }
+                    
+                    if (numeroRepetido == true)
+                    {
+                        Console.WriteLine("Você já digitou este número!");
+                        Console.ReadLine();
+                        tentativa--;
+                        continue;
+                    }
+
+                    numerosTentados[tentativasFeitas] = numeroChute;
+                    tentativasFeitas++;
 
                     if (numeroChute == numeroSecretoRandom)
                     {
