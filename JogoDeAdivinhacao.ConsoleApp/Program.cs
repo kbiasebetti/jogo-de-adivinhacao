@@ -79,22 +79,24 @@
                     else if (numeroChute > numeroSecretoRandom)
                     {
                         Console.WriteLine($"O número secreto é menor!");
-                        pontuacao -= Math.Abs((numeroChute - numeroSecretoRandom) / 2);
+                        int diferenca = Math.Abs(numeroChute - numeroSecretoRandom); 
+                        pontuacao -= diferenca / 2; 
                         if (pontuacao < 0) pontuacao = 0;
                         Console.WriteLine($"Pontos: {pontuacao}");
                     }
                     else if (numeroChute < numeroSecretoRandom)
                     {
                         Console.WriteLine($"O número secreto é maior!");
-                        pontuacao = Math.Abs((numeroChute - numeroSecretoRandom) / 2);
+                        int diferenca = Math.Abs(numeroChute - numeroSecretoRandom); 
+                        pontuacao -= diferenca / 2; 
                         if (pontuacao < 0) pontuacao = 0;
                         Console.WriteLine($"Pontos: {pontuacao}");
                     }
                     else
                     {
                         Console.WriteLine($"Que pena, você errou o número!");
-                        pontuacao-= Math.Abs((numeroChute - numeroSecretoRandom) / 2);
-                        if (pontuacao < 0) pontuacao = 0;
+                        int diferenca = Math.Abs(numeroChute - numeroSecretoRandom);
+                        pontuacao -= diferenca / 2;
                         Console.WriteLine($"Pontos: {pontuacao}");
                     }
 
